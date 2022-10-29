@@ -27,6 +27,9 @@ document.body.appendChild(renderer.domElement);
 //매쉬01
 const material01 = new THREE.MeshStandardMaterial({
   color: 0xff7f00,
+  metalness: 0.9,
+  roughness: 0.2,
+  //   wireframe: true,
 });
 const geometry01 = new THREE.TorusGeometry(0.3, 0.15, 16, 40);
 const obj00 = new THREE.Mesh(geometry01, material01);
@@ -35,7 +38,7 @@ scene.add(obj00);
 
 //매쉬02
 const geometry02 = new THREE.TorusGeometry(0.3, 0.15, 16, 40);
-const material02 = new THREE.MeshStandardMaterial({
+const material02 = new THREE.MeshDepthMaterial({
   color: 0xff7f00,
 });
 const obj01 = new THREE.Mesh(geometry02, material02);
@@ -44,7 +47,7 @@ scene.add(obj01);
 
 //매쉬03
 const geometry03 = new THREE.TorusGeometry(0.3, 0.15, 16, 40);
-const material03 = new THREE.MeshStandardMaterial({
+const material03 = new THREE.MeshLambertMaterial({
   color: 0xff7f00,
 });
 const obj02 = new THREE.Mesh(geometry03, material03);
@@ -53,8 +56,10 @@ scene.add(obj02);
 
 //매쉬04
 const geometry04 = new THREE.TorusGeometry(0.3, 0.15, 16, 40);
-const material04 = new THREE.MeshStandardMaterial({
+const material04 = new THREE.MeshPhongMaterial({
   color: 0xff7f00,
+  shininess: 90,
+  specular: 0x004fff,
 });
 const obj03 = new THREE.Mesh(geometry04, material04);
 obj03.position.x = 1;
@@ -64,10 +69,18 @@ scene.add(obj03);
 const geometry05 = new THREE.TorusGeometry(0.3, 0.15, 16, 40);
 const material05 = new THREE.MeshStandardMaterial({
   color: 0xff7f00,
+  metalness: 0.5,
+  roughness: 0.4,
+  wireframe: true,
 });
 const obj04 = new THREE.Mesh(geometry05, material05);
 obj04.position.x = 2;
 scene.add(obj04);
+
+//빛
+const pointlight = new THREE.PointLight(0xffffff, 1);
+pointlight.position.set(0, 2, 12);
+scene.add(pointlight);
 
 function render(time) {
   time *= 0.0005;
