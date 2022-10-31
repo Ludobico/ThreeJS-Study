@@ -18,7 +18,7 @@ const renderer = new THREE.WebGLRenderer({
   //안티엘리어싱
   antialias: true,
   //아무것도 없는 공간은 투명하게
-  //   alpha: true,
+  alpha: true,
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 

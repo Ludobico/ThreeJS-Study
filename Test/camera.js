@@ -10,6 +10,7 @@ const near = 0.1;
 const far = 1000;
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 camera.position.set(0, 0, 1);
+camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 //렌더러
 const renderer = new THREE.WebGLRenderer({
@@ -38,10 +39,12 @@ scene.add(PL);
 
 //바닥 추가
 const planeGeometry = new THREE.PlaneGeometry(30, 30, 1, 1);
-const planeMaterial = new THREE.MeshStandardMaterial({ color: 0xeeeeee });
+const planeMaterial = new THREE.MeshStandardMaterial({
+  color: 0xeeeeee,
+});
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-plane.rotation.x = -0.5 * meth.PI;
-plane.rotation.y = -0.5;
+plane.rotation.x = 1 * Math.PI;
+plane.rotation.y = 1;
 scene.add(plane);
 
 function render(time) {
