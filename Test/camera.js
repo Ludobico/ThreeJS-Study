@@ -4,15 +4,14 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 
 //카메라
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
+const fov = 75; //카메라 각도(시야각)
+const aspect = window.innerWidth / window.innerHeight; //종횡비(가로 세로 비율)
+const near = 0.1;
+const far = 1000;
+const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 camera.position.set(0, 0, 1);
-//렌더러
 
+//렌더러
 const renderer = new THREE.WebGLRenderer({
   //안티엘리어싱
   antialias: true,
@@ -36,6 +35,14 @@ scene.add(cube);
 const PL = new THREE.PointLight(0xffffff, 1);
 PL.position.set(0, 2, 12);
 scene.add(PL);
+
+//바닥 추가
+const planeGeometry = new THREE.PlaneGeometry(30, 30, 1, 1);
+const planeMaterial = new THREE.MeshStandardMaterial({ color: 0xeeeeee });
+const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+plane.rotation.x = -0.5 * meth.PI;
+plane.rotation.y = -0.5;
+scene.add(plane);
 
 function render(time) {
   time *= 0.0005;

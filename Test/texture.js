@@ -20,6 +20,7 @@ const renderer = new THREE.WebGLRenderer({
   alpha: true,
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMapEnabled = true;
 
 document.body.appendChild(renderer.domElement);
 
@@ -28,6 +29,7 @@ const PL = new THREE.PointLight(0xffffff, 1);
 PL.position.set(0, 2, 12);
 scene.add(PL);
 
+//https://3dtextures.me/
 // 텍스쳐 basecolor 추가
 const textureLoader = new THREE.TextureLoader();
 const abstractBaseColor = textureLoader.load(
@@ -108,8 +110,9 @@ const material01 = new THREE.MeshStandardMaterial({
   displacementScale: 0.01,
   roughnessMap: abstractRoughness,
   aoMap: abstractAO,
-  metalness: 0.75,
+  metalness: 0.8,
   roughness: 1,
+  castShadow: true,
 });
 const obj01 = new THREE.Mesh(geometry, material01);
 obj01.position.x = -2;
@@ -143,7 +146,7 @@ scene.add(obj03);
 
 //도형4
 const material04 = new THREE.MeshStandardMaterial({
-  map: plasticMeshBaseColor,
+  //   map: plasticMeshBaseColor,
   normalMap: plasticMeshNormal,
   displacementMap: plasticMeshHeight,
   displacementScale: 0.01,
