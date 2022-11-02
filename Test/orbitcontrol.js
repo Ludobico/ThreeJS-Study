@@ -24,6 +24,7 @@ document.body.appendChild(renderer.domElement);
 
 // orbitControl 카메라 세팅 이후에 해야됨
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
 controls.minDistance = 2; //마우스 휠로 카메라 거리 조작시 최소 값
 controls.maxDistance = 6;
 // controls.maxPolarAngle = 1; //아랫 각도 제어
@@ -85,8 +86,8 @@ scene.add(SP);
 //렌더링
 function render() {
   renderer.render(scene, camera);
-  obj.rotation.y += 0.01;
-  obj1.rotation.y += 0.005;
+  // obj.rotation.y += 0.01;
+  // obj1.rotation.y += 0.005;
   controls.update();
   requestAnimationFrame(render);
 }

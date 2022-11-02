@@ -1,10 +1,6 @@
 import * as THREE from "../node_modules/three/build/three.module.js";
 import { OrbitControls } from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
 //https://opengameart.org/content/skiingpenguins-skybox-pack
-//색 변수
-const fogcolor = 0xffffff;
-const objcolor = 0xffffff;
-const floorcolor = 0x555555;
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
@@ -92,10 +88,6 @@ for (let i = 0; i < 6; i++) {
 
 // 오브젝트
 const skygeometry = new THREE.BoxGeometry(400, 400, 400);
-// const skymaterial = new THREE.MeshStandardMaterial({
-//   map: texture,
-// });
-// skymaterial.side = THREE.BackSide;
 const skymesh = new THREE.Mesh(skygeometry, skyMaterialArray);
 scene.add(skymesh);
 
