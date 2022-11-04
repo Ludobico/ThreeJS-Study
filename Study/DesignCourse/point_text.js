@@ -51,7 +51,7 @@ for (let i = 0; i < particlesCnt * 3; i++) {
 }
 particlesGeometry.setAttribute(
   "position",
-  new THREE.BufferAttribute(posArray, 3)
+  new THREE.BufferAttribute(posArray, 3) //여기서 3은 3개의 벡터(position, normal, color)가 결정됨
 );
 const particlesMaterial = new THREE.PointsMaterial({
   size: 0.02,
