@@ -1,7 +1,7 @@
 https://threejs.org/docs/index.html#manual/ko/introduction/Creating-a-scene
 
 # Scene 만들기
-three.js 로 무언가를 표현하려면 scene,camera 그리고 renderer 가 필요합니다. 이를 통해 카메라로 장면을 구현할 수 있습니다.
+three.js 로 무언가를 표현하려면 scene,camera 그리고 renderer 가 필요합니다. 이를 통해 카메라로 장면을 구현할 수 있습니다..
 
 ```js
 const scene = new THREE.Scene();
